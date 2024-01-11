@@ -1,0 +1,13 @@
+_site
+.DS_Store
+.idea/*
+.netlify
+.vscode/
+*.iml
+*.pyc
+certificate.*
+dist/
+Gemfile.lock
+node_modules
+push-messaging-and-notifications/config.js
+push-messaging-and-notifications/manifest.json
