@@ -56,6 +56,11 @@ var urlsToPrefetch = [
   'https://storage.googleapis.com/media-session/sample.webm',
 ];
 // 這裡放置你想要延遲執行的程式碼
+// 建立一個 Date 物件
+var currentDate = new Date();
+
+// 取得當前的時間
+var currentTime = currentDate.toLocaleTimeString();
 console.log('當前時間:', currentTime);
 console.log('start to add');
 caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
