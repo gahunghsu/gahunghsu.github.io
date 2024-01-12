@@ -36,7 +36,7 @@ self.addEventListener('install', function(event) {
     '../../styles/main.css',
     'static/poster.jpg',
     // The videos are stored remotely with CORS enabled.
-    'https://inxdepth.blob.core.windows.net/smartcart/mediaContent/20230427132103.mp4',
+    // 'https://inxdepth.blob.core.windows.net/smartcart/mediaContent/20230427132103.mp4',
   ];
 
   // All of these logging statements should be visible via the "Inspect" interface
