@@ -62,5 +62,5 @@ setTimeout(function() {
     cache.addAll(urlsToPrefetch);
   })
 
-}, 5000); // 5000 毫秒等於 5 秒
+}, 1000); // 5000 毫秒等於 5 秒
 
