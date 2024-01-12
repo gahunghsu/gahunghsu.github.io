@@ -55,27 +55,12 @@ setTimeout(function() {
     prefetch: 'prefetch-cache-v' + CACHE_VERSION
   };
   var urlsToPrefetch = [
-    'https://youtu.be/4m0ib2mt0M0?si=w8jSZX70iYqJTFpU',
+    'https://storage.googleapis.com/media-session/sample.webm',
   ];
   // 這裡放置你想要延遲執行的程式碼
   caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
     cache.addAll(urlsToPrefetch);
   })
-
-  // 取得 <video> 元素
-  var videoElement = document.getElementById('video');
-
-  // 取得第一個 <source> 元素
-  var sourceElement = videoElement.getElementsByTagName('source')[0];
-
-  // 設定新的影片 URL
-  var newVideoURL = 'https://youtu.be/4m0ib2mt0M0?si=w8jSZX70iYqJTFpU';
-
-  // 改變 <source> 元素的影片 URL
-  sourceElement.src = newVideoURL;
-
-  // 重新載入影片
-  videoElement.load();
 
 }, 5000); // 5000 毫秒等於 5 秒
 
