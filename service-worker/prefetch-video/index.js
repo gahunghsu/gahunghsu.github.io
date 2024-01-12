@@ -48,22 +48,38 @@ document.querySelector('video').onloadedmetadata = function() {
   document.querySelector('#currentSrc').textContent = 'Video src: ' + fileName;
 };
 
-// 使用 setTimeout 函數
-setTimeout(function() {
-  var CACHE_VERSION = 2;
-  var CURRENT_CACHES = {
-    prefetch: 'prefetch-cache-v' + CACHE_VERSION
-  };
-  var urlsToPrefetch = [
-    'https://storage.googleapis.com/media-session/sample.webm',
-  ];
-  // 這裡放置你想要延遲執行的程式碼
-  console.log('start to add');
-  caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
-    cache.addAll(urlsToPrefetch);
-    console.log('end to add');
-  })
-  
+var CACHE_VERSION = 2;
+var CURRENT_CACHES = {
+  prefetch: 'prefetch-cache-v' + CACHE_VERSION
+};
+var urlsToPrefetch = [
+  'https://storage.googleapis.com/media-session/sample.webm',
+];
+// 這裡放置你想要延遲執行的程式碼
+console.log('當前時間:', currentTime);
+console.log('start to add');
+caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
+  cache.addAll(urlsToPrefetch);    
+})
 
-}, 1000); // 5000 毫秒等於 5 秒
+// 定義要執行的函數
+function myFunction() {
+  // 建立一個 Date 物件
+  var currentDate = new Date();
+
+  // 取得當前的時間
+  var currentTime = currentDate.toLocaleTimeString();
+
+  // 列印出當前的時間
+  console.log('當前時間:', currentTime);
+  // 列出所有快取的清單
+  caches.keys().then(function(cacheNames) {
+    cacheNames.forEach(function(cacheName) {
+      console.log('快取名稱:', cacheName);
+    });
+  });
+}
+
+// 設定每秒執行一次的間隔
+var intervalID = setInterval(myFunction, 1000); // 1000 毫秒等於 1 秒
 
