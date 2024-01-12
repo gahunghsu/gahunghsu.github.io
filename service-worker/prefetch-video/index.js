@@ -58,9 +58,12 @@ setTimeout(function() {
     'https://storage.googleapis.com/media-session/sample.webm',
   ];
   // 這裡放置你想要延遲執行的程式碼
+  console.log('start to add');
   caches.open(CURRENT_CACHES.prefetch).then(function(cache) {
     cache.addAll(urlsToPrefetch);
+    console.log('end to add');
   })
+  
 
 }, 1000); // 5000 毫秒等於 5 秒
 
