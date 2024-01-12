@@ -77,10 +77,17 @@ function myFunction() {
 
   // 列印出當前的時間
   console.log('當前時間:', currentTime);
-  // 列出所有快取的清單
-  caches.keys().then(function(cacheNames) {
-    cacheNames.forEach(function(cacheName) {
-      console.log('快取名稱:', cacheName);
+
+  // 取得指定快取的 request 列表
+  var cacheName = 'prefetch-cache-v2'; // 替換成你實際使用的快取名稱
+
+  caches.open(cacheName).then(function(cache) {
+    // 使用 matchAll 取得所有 request
+    cache.matchAll().then(function(requests) {
+      console.log('快取中的 request 列表:');
+      requests.forEach(function(request) {
+        console.log(request.url);
+      });
     });
   });
 }
